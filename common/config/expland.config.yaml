@@ -4,3 +4,17 @@ Mysql:
   UserName: root
   PassWord: root
   DataBase: test
+Redis:
+  Host: 127.0.0.1
+  Pass:
+  Port: 6379
+  DB: 0
+  User:
+Server:
+  Host: 127.0.0.1
+  Port: 8081
+Elastic:
+  Host: 127.0.0.1
+  Port: 9200
+  User:
+  Pass:

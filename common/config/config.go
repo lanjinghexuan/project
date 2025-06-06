@@ -3,6 +3,20 @@ package config
 type Config struct {
 	Mysql
 	Redis
+	Server
+	Elastic
+}
+
+type Server struct {
+	Host string `yaml:"Host"`
+	Port int    `yaml:"Port"`
+}
+
+type Elastic struct {
+	Host string `yaml:"Host"`
+	Port int    `yaml:"Port"`
+	User string `yaml:"User"`
+	Pass string `yaml:"Pass"`
 }
 
 type Mysql struct {

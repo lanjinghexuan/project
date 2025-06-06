@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+service VideoUser{
+  rpc Login(LoginRep) returns(LoginRes);
+}
+
+message LoginRep{
+  string Name = 1;
+  string UserCode = 2;
+}
+
+message LoginRes{
+  int32  Id = 1;
+}

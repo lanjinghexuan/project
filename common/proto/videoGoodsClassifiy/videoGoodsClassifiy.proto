@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = ".";
+
+service goodsClassifiy{
+  rpc GetGoodsClass(GoodsClassReq) returns (GoodsClassRes);
+}
+
+message GoodsClassReq{
+  int32 Pid = 1;
+}
+
+message GoodsClassRes{
+  repeated GoodsClass  goodsclass = 1;
+}
+
+message GoodsClass{
+  int32 Id = 1;
+  string ClassifiyName = 2;
+  int32 Pid = 3;
+  int32 Soft = 4;
+}

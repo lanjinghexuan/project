@@ -1,4 +1,4 @@
-package init
+package cmd
 
 import (
 	"context"
@@ -23,7 +23,7 @@ func init() {
 }
 
 func viperConfig() {
-	viper.SetConfigFile("../common/config/config.yaml")
+	viper.SetConfigFile("../../config/config.yaml")
 	err := viper.ReadInConfig()
 	if err != nil {
 		fmt.Println("viper读取文件错误.error:", err)
