@@ -5,6 +5,7 @@ type Config struct {
 	Redis
 	Server
 	Elastic
+	AliyunGpt
 }
 
 type Server struct {
@@ -33,4 +34,8 @@ type Redis struct {
 	User     string `yaml:"User"`
 	Password string `yaml:"PassWord"`
 	DB       int    `yaml:"DB"`
+}
+
+type AliyunGpt struct {
+	ApiKey string `yaml:"ApiKey"`
 }

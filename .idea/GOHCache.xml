@@ -10,6 +10,20 @@
             </set>
           </value>
         </entry>
+        <entry key="AliyunGpt">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/common/config/config.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Aliyungpt">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/common/model/AliyunGpt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Config">
           <value>
             <set>
@@ -28,6 +42,13 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/api/request/videoGoodsClassifiy.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="GetGptDataReq">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
             </set>
           </value>
         </entry>
@@ -59,6 +80,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Input">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="LoginRep">
           <value>
             <set>
@@ -80,6 +108,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Message">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Mysql">
           <value>
             <set>
@@ -87,10 +122,38 @@
             </set>
           </value>
         </entry>
+        <entry key="Parameters">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="QwenResponse">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Redis">
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/common/config/config.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="RequestBody">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="SendGptReq">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/api/handle/Alichatgpt.go" />
             </set>
           </value>
         </entry>
@@ -169,6 +232,24 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/api/handle/Alichatgpt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749209073255" />
+              <option name="schema">
+                <list>
+                  <option value="Message" />
+                  <option value="Input" />
+                  <option value="Parameters" />
+                  <option value="RequestBody" />
+                  <option value="QwenResponse" />
+                  <option value="SendGptReq" />
+                  <option value="GetGptDataReq" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/api/handle/videoGoodsClassifiy.go">
           <value>
             <ScannedPath>
@@ -186,7 +267,7 @@
         <entry key="file://$PROJECT_DIR$/api/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749172878159" />
+              <option name="lastModified" value="1749209098109" />
             </ScannedPath>
           </value>
         </entry>
@@ -273,27 +354,6 @@
             </ScannedPath>
           </value>
         </entry>
-        <entry key="file://$PROJECT_DIR$/common/cmd.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1749172832473" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/common/cmd/createEs.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1749173082798" />
-            </ScannedPath>
-          </value>
-        </entry>
-        <entry key="file://$PROJECT_DIR$/common/cmd/createEs/createEs.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1749173189732" />
-            </ScannedPath>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/common/cmd/createEs/main.go">
           <value>
             <ScannedPath>
@@ -316,7 +376,7 @@
         <entry key="file://$PROJECT_DIR$/common/config/config.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749039388067" />
+              <option name="lastModified" value="1749192792795" />
               <option name="schema">
                 <list>
                   <option value="Config" />
@@ -324,6 +384,7 @@
                   <option value="Elastic" />
                   <option value="Mysql" />
                   <option value="Redis" />
+                  <option value="AliyunGpt" />
                 </list>
               </option>
             </ScannedPath>
@@ -340,6 +401,18 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1749178260280" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/model/AliyunGpt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749194009438" />
+              <option name="schema">
+                <list>
+                  <option value="Aliyungpt" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -446,19 +519,28 @@
     <option name="tableStructMapping">
       <map>
         <entry key="add_video" value="AddVideo" />
+        <entry key="aliyun_gpt" value="AliyunGpt" />
+        <entry key="aliyungpt" value="Aliyungpt" />
         <entry key="config" value="Config" />
         <entry key="elastic" value="Elastic" />
         <entry key="get_goods_classifiy_req" value="GetGoodsClassifiyReq" />
+        <entry key="get_gpt_data_req" value="GetGptDataReq" />
         <entry key="goods_class" value="GoodsClass" />
         <entry key="goods_class_req" value="GoodsClassReq" />
         <entry key="goods_class_res" value="GoodsClassRes" />
         <entry key="goods_classifiy_client" value="goodsClassifiyClient" />
         <entry key="goods_classifiy_server" value="GoodsClassifiyServer" />
+        <entry key="input" value="Input" />
         <entry key="login_rep" value="LoginRep" />
         <entry key="login_req" value="LoginReq" />
         <entry key="login_res" value="LoginRes" />
+        <entry key="message" value="Message" />
         <entry key="mysql" value="Mysql" />
+        <entry key="parameters" value="Parameters" />
+        <entry key="qwen_response" value="QwenResponse" />
         <entry key="redis" value="Redis" />
+        <entry key="request_body" value="RequestBody" />
+        <entry key="send_gpt_req" value="SendGptReq" />
         <entry key="server" value="Server" />
         <entry key="unimplemented_goods_classifiy_server" value="UnimplementedGoodsClassifiyServer" />
         <entry key="unimplemented_video_user_server" value="UnimplementedVideoUserServer" />
@@ -470,6 +552,6 @@
         <entry key="x" value="x" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1749115231787" />
+    <option name="lastTimeChecked" value="1749207745069" />
   </component>
 </project>
