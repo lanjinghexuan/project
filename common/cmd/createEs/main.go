@@ -71,6 +71,10 @@ func main() {
 		return
 	}
 	fmt.Println(videoworks)
+	if len(videoworks) == 0 {
+		fmt.Println("数据添加完毕")
+		return
+	}
 
 	//BulkAddEs(Ai编写的批量添加，在大数据使用)
 	var bulkRequest []interface{}

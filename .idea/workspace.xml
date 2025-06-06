@@ -7,13 +7,9 @@
     <list default="true" id="8a9cb5cd-87ed-4d38-83a5-d3888428c8fc" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/GOHCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GOHCache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/config/expland.config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/common/config/expland.config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/cmd/createEs/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/cmd/createEs/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/cmd/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/cmd/init.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/gload/gload.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/gload/gload.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/init/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/init/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
