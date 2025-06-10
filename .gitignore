@@ -1,1 +1,3 @@
-/common/config/config.yaml
+common/config/config.yaml
+.idea
+/api/files/

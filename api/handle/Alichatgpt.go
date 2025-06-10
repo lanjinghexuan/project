@@ -204,18 +204,24 @@ func GetGptData(c *gin.Context) {
 }
 
 func FlowGpt(task_no string, question string) {
+	fmt.Println("创建协程：" + task_no)
 	ctx := context.Background()
 	client := openai.NewClient(
 		option.WithAPIKey(gload.CONFIG.AliyunGpt.ApiKey),
 		option.WithBaseURL("https://dashscope.aliyuncs.com/compatible-mode/v1/"),
 	)
 	filename := "./files/" + task_no + ".txt"
+
+	// 创建文件
 	file, err := os.Create(filename)
-	defer file.Close()
-	write := bufio.NewWriter(file)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("创建文件失败:", err)
+		return
 	}
+	defer file.Close() // 确保文件在函数结束时关闭
+
+	write := bufio.NewWriter(file)
+	defer write.Flush() // 确保缓冲区内容被刷新到文件
 
 	stream := client.Chat.Completions.NewStreaming(ctx, openai.ChatCompletionNewParams{
 		Messages: []openai.ChatCompletionMessageParamUnion{
@@ -225,7 +231,6 @@ func FlowGpt(task_no string, question string) {
 		Model: "qwen-plus",
 	})
 
-	// optionally, an accumulator helper can be used
 	acc := openai.ChatCompletionAccumulator{}
 
 	for stream.Next() {
@@ -233,40 +238,49 @@ func FlowGpt(task_no string, question string) {
 		acc.AddChunk(chunk)
 
 		if content, ok := acc.JustFinishedContent(); ok {
-			println("Content stream finished:", content)
+			fmt.Println("Content stream finished:", content)
 		}
 
-		// if using tool calls
 		if tool, ok := acc.JustFinishedToolCall(); ok {
-			println("Tool call stream finished:", tool.Index, tool.Name, tool.Arguments)
+			fmt.Println("Tool call stream finished:", tool.Index, tool.Name, tool.Arguments)
 		}
 
 		if refusal, ok := acc.JustFinishedRefusal(); ok {
-			println("Refusal stream finished:", refusal)
+			fmt.Println("Refusal stream finished:", refusal)
 		}
-		// it's best to use chunks after handling JustFinished events
-		if len(chunk.Choices) > 0 {
-			write.WriteString(chunk.Choices[0].Delta.Content)
-		}
-	}
-	defer write.Flush()
-	if stream.Err() != nil {
-		panic(stream.Err())
-	}
-	write.WriteString("[end]")
 
-	data, err := os.Open(filename)
-	defer file.Close()
-	scanner := bufio.NewScanner(data)
-	var dataStr string
-	for scanner.Scan() {
-		dataStr += scanner.Text()
+		if len(chunk.Choices) > 0 {
+			if _, err := write.WriteString(chunk.Choices[0].Delta.Content); err != nil {
+				fmt.Println("写入文件失败:", err)
+				return
+			}
+			write.Flush()
+			//fmt.Println("<UNK>", chunk.Choices[0].Delta.Content)
+		}
 	}
+
+	if stream.Err() != nil {
+		fmt.Println("流处理错误:", stream.Err())
+		return
+	}
+
+	// 读取文件内容
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		fmt.Println("读取文件失败:", err)
+		return
+	}
+
+	dataStr := string(data)
+	fmt.Println("文件内容:", dataStr)
 
 	updates := model.Aliyungpt{}
 	updates.Status = 2
 	updates.Request = dataStr
-	gload.DB.Table("aliyunGpt").Where("task_no = ?", task_no).Updates(&updates)
+	if err := gload.DB.Table("aliyunGpt").Where("task_no = ?", task_no).Updates(&updates).Error; err != nil {
+		fmt.Println("更新数据库失败:", err)
+		return
+	}
 }
 
 func SendFlowGpt(c *gin.Context) {
@@ -309,26 +323,35 @@ func GetFlowGpt(c *gin.Context) {
 		fmt.Println(err)
 	}
 	var data model.Aliyungpt
+	//通过task_no 查询
 	err = gload.DB.Table("aliyunGpt").Where("task_no = ?", req.TaskNo).Limit(1).Find(&data).Error
 	if err != nil {
 		fmt.Println(err)
 	}
 	if data.Id > 0 {
 		if data.Status == 2 {
+			//如果数据存在并且状态 == 2 返回数据库内容
+			fmt.Println("查询到数据并且状态为2")
 			c.JSON(200, gin.H{
 				"code": 200,
 				"data": data.Request,
 				"msg":  "查询成功",
 			})
+			return
 		}
 	}
-
+	fmt.Println("数据不存在或者状态不为2")
 	filename := "./files/" + req.TaskNo + ".txt"
 	fileData, err := os.Open(filename)
+	if err != nil {
+		fmt.Println("open文件错误:", err)
+	}
 	defer fileData.Close()
 	scanner := bufio.NewScanner(fileData)
+
 	var dataStr string
 	for scanner.Scan() {
+		fmt.Println("打开文件", scanner.Text())
 		dataStr += scanner.Text()
 	}
 	c.JSON(200, gin.H{

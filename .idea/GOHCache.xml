@@ -232,10 +232,17 @@
     </option>
     <option name="scannedPathMapping">
       <map>
+        <entry key="file://$PROJECT_DIR$/../gostart/api/pkg/jwt.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749518445845" />
+            </ScannedPath>
+          </value>
+        </entry>
         <entry key="file://$PROJECT_DIR$/api/handle/Alichatgpt.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749209073255" />
+              <option name="lastModified" value="1749521601721" />
               <option name="schema">
                 <list>
                   <option value="Message" />
@@ -552,6 +559,6 @@
         <entry key="x" value="x" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1749207745069" />
+    <option name="lastTimeChecked" value="1749518138841" />
   </component>
 </project>
