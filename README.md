@@ -8,3 +8,6 @@ pkg目前封装了es的操作
 代码地址为 "api/handle/Alichatgpt.go"
 路由地址为 "api/main.go“
 关于流式输出的文件会在 "api/files" 
+
+文档编写了go操作mongodb的增删查改
+代码地址为 "common/cmd/mongo/main.go"

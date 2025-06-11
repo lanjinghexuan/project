@@ -6,6 +6,7 @@ type Config struct {
 	Server
 	Elastic
 	AliyunGpt
+	Mongo
 }
 
 type Server struct {
@@ -38,4 +39,11 @@ type Redis struct {
 
 type AliyunGpt struct {
 	ApiKey string `yaml:"ApiKey"`
+}
+
+type Mongo struct {
+	Host string `yaml:"Host"`
+	Port int    `yaml:"Port"`
+	User string `yaml:"User"`
+	Pass string `yaml:"Pass"`
 }

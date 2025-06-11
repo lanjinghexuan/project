@@ -7,6 +7,8 @@ import (
 	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/go-redis/redis/v8"
 	"github.com/spf13/viper"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"net"
@@ -20,6 +22,7 @@ func init() {
 	InitMysql()
 	InitRedis()
 	InitElasticsearch()
+	InitMongo()
 }
 
 func viperConfig() {
@@ -48,6 +51,7 @@ func InitMysql() {
 	if err != nil {
 		fmt.Println("链接mysql出错.error:", err)
 	}
+	fmt.Println("mysql连接成功:%v", gload.DB)
 }
 
 func InitRedis() {
@@ -85,4 +89,27 @@ func InitElasticsearch() {
 	if err != nil {
 		fmt.Println("<UNK>elasticsearch<UNK>.error:", err)
 	}
+}
+
+func InitMongo() {
+	client := options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s@%s:%d",
+		gload.CONFIG.Mongo.User,
+		gload.CONFIG.Mongo.Pass,
+		gload.CONFIG.Mongo.Host,
+		gload.CONFIG.Mongo.Port,
+	))
+
+	c, err := mongo.Connect(gload.Ctx, client)
+	if err != nil {
+		fmt.Printf("error connecting to database: %v\n", err)
+		return
+	}
+
+	err = c.Ping(gload.Ctx, nil)
+	if err != nil {
+		fmt.Printf("error pinging database: %v\n", err)
+		return
+	}
+	gload.MONGO = c
+	fmt.Println(gload.MONGO)
 }

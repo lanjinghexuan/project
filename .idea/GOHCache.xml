@@ -116,6 +116,13 @@
             </set>
           </value>
         </entry>
+        <entry key="Mongo">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/common/config/config.go" />
+            </set>
+          </value>
+        </entry>
         <entry key="Mysql">
           <value>
             <set>
@@ -218,6 +225,9 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/common/cmd/createEs/main.go" />
+              <option value="file://$PROJECT_DIR$/common/cmd/mongo/main.go" />
+              <option value="file://$PROJECT_DIR$/common/cmd/mongo/mongodb.go" />
+              <option value="file://$PROJECT_DIR$/common/pkr/mongodb.go" />
             </set>
           </value>
         </entry>
@@ -370,14 +380,45 @@
         <entry key="file://$PROJECT_DIR$/common/cmd/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749178561202" />
+              <option name="lastModified" value="1749641421953" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/cmd/mongo/main.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749645311688" />
+              <option name="schema">
+                <list>
+                  <option value="videoWorks" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/cmd/mongo/mongodb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749635900725" />
+              <option name="schema">
+                <list>
+                  <option value="videoWorks" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/cmd/tongyiqianwen/qianwen.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749632700788" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/common/config/config.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749192792795" />
+              <option name="lastModified" value="1749641251799" />
               <option name="schema">
                 <list>
                   <option value="Config" />
@@ -386,6 +427,7 @@
                   <option value="Mysql" />
                   <option value="Redis" />
                   <option value="AliyunGpt" />
+                  <option value="Mongo" />
                 </list>
               </option>
             </ScannedPath>
@@ -394,14 +436,14 @@
         <entry key="file://$PROJECT_DIR$/common/gload/gload.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749177318662" />
+              <option name="lastModified" value="1749633676087" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/common/init/init.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749178260280" />
+              <option name="lastModified" value="1749641519698" />
             </ScannedPath>
           </value>
         </entry>
@@ -469,6 +511,18 @@
           <value>
             <ScannedPath>
               <option name="lastModified" value="1749040710003" />
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/pkr/mongodb.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749645527667" />
+              <option name="schema">
+                <list>
+                  <option value="videoWorks" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
@@ -548,6 +602,7 @@
         <entry key="login_req" value="LoginReq" />
         <entry key="login_res" value="LoginRes" />
         <entry key="message" value="Message" />
+        <entry key="mongo" value="Mongo" />
         <entry key="mysql" value="Mysql" />
         <entry key="parameters" value="Parameters" />
         <entry key="qwen_response" value="QwenResponse" />
