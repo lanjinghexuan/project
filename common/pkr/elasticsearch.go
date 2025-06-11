@@ -8,6 +8,8 @@ import (
 	"strings"
 )
 
+//没有封装修改，建议删除在添加
+
 func CreateEs(index string) (bool, error) {
 	resp, err := gload.ES.Indices.
 		Create(index)
@@ -26,9 +28,9 @@ type AddVideo struct {
 	Title string
 }
 
-func AddEs(index string, add interface{}) (bool, error) {
+func AddEs(index string, add interface{}, id string) (bool, error) {
 	addjson, _ := json.Marshal(add)
-	res, err := gload.ES.Index(index, strings.NewReader(string(addjson)))
+	res, err := gload.ES.Index(index, strings.NewReader(string(addjson)), gload.ES.Index.WithDocumentID(id))
 	if err != nil {
 		return false, err
 	}
@@ -112,6 +114,8 @@ func DelEs() {
     }
   }}`
 	res, err := gload.ES.DeleteByQuery([]string{"video_works"}, strings.NewReader(query))
+	//示例
+	//res, err = gload.ES.Delete("video_works", "5")
 	if err != nil {
 		fmt.Println("<UNK>elasticsearch<UNK>.error:", err)
 	}
@@ -119,10 +123,6 @@ func DelEs() {
 		fmt.Println("删除成功.success")
 	}
 	fmt.Println(res, "删除失败")
-}
-
-func UpdateEs() {
-
 }
 
 func IssetIndex(index string) (bool, error) {

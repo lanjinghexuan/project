@@ -7,6 +7,7 @@
           <value>
             <set>
               <option value="file://$PROJECT_DIR$/common/pkr/elasticsearch.go" />
+              <option value="file://$PROJECT_DIR$/common/pkr/es.go" />
             </set>
           </value>
         </entry>
@@ -232,13 +233,6 @@
     </option>
     <option name="scannedPathMapping">
       <map>
-        <entry key="file://$PROJECT_DIR$/../gostart/api/pkg/jwt.go">
-          <value>
-            <ScannedPath>
-              <option name="lastModified" value="1749518445845" />
-            </ScannedPath>
-          </value>
-        </entry>
         <entry key="file://$PROJECT_DIR$/api/handle/Alichatgpt.go">
           <value>
             <ScannedPath>
@@ -364,7 +358,7 @@
         <entry key="file://$PROJECT_DIR$/common/cmd/createEs/main.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749184031248" />
+              <option name="lastModified" value="1749560577839" />
               <option name="schema">
                 <list>
                   <option value="videoWorks" />
@@ -450,7 +444,19 @@
         <entry key="file://$PROJECT_DIR$/common/pkr/elasticsearch.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1749183781648" />
+              <option name="lastModified" value="1749560823496" />
+              <option name="schema">
+                <list>
+                  <option value="AddVideo" />
+                </list>
+              </option>
+            </ScannedPath>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/common/pkr/es.go">
+          <value>
+            <ScannedPath>
+              <option name="lastModified" value="1749630965845" />
               <option name="schema">
                 <list>
                   <option value="AddVideo" />
@@ -559,6 +565,6 @@
         <entry key="x" value="x" />
       </map>
     </option>
-    <option name="lastTimeChecked" value="1749518138841" />
+    <option name="lastTimeChecked" value="1749630846300" />
   </component>
 </project>

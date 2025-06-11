@@ -5,6 +5,7 @@ import (
 	_ "project/common/cmd"
 	"project/common/gload"
 	"project/common/pkr"
+	"strconv"
 )
 
 type videoWorks struct {
@@ -40,15 +41,15 @@ func main() {
 
 	//查询最后一条插入的数据
 	query := `{
-    "sort": [
-      {
-        "Id": {
-          "order": "desc"
-        }
-      }
-    ],
-    "size": 1
-}`
+		"sort": [
+		  {
+			"Id": {
+			  "order": "desc"
+			}
+		  }
+		],
+		"size": 1
+	}`
 	last, err := pkr.SearchEs(query)
 	if err != nil {
 		fmt.Println(err)
@@ -91,7 +92,7 @@ func main() {
 			fmt.Println("数据添加完毕")
 			return
 		}
-		r, err := pkr.AddEs("video_works", v)
+		r, err := pkr.AddEs("video_works", v, strconv.Itoa(int(v.Id)))
 		if err != nil {
 			fmt.Println("addes error:", err)
 			return
