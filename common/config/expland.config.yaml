@@ -18,3 +18,11 @@ Elastic:
   Port: 9200
   User:
   Pass:
+AliyunGpt:
+  ApiKey: sk-
+Mongo:
+  Host: 127.0.0.1
+  Port: 27017
+  User: mongodb
+  Pass: root
+
