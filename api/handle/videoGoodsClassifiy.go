@@ -3,9 +3,9 @@ package handle
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"project/api/request"
-	"project/api/server"
-	pb "project/common/proto/videoGoodsClassifiy"
+	"github.com/lanjinghexuan/project/api/request"
+	"github.com/lanjinghexuan/project/api/server"
+	pb "github.com/lanjinghexuan/project/common/proto/videoGoodsClassifiy"
 )
 
 func GetGoodsClass(c *gin.Context) {

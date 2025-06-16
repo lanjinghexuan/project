@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	_ "project/common/cmd"
-	"project/common/gload"
+	_ "github.com/lanjinghexuan/project/common/cmd"
+	"github.com/lanjinghexuan/project/common/gload"
 )
 
 type videoWorks struct {

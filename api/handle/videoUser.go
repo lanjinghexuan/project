@@ -3,11 +3,11 @@ package handle
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/lanjinghexuan/project/api/request"
+	"github.com/lanjinghexuan/project/api/server"
+	"github.com/lanjinghexuan/project/common/pkr"
+	pb "github.com/lanjinghexuan/project/common/proto/videoUser"
 	"net/http"
-	"project/api/request"
-	"project/api/server"
-	"project/common/pkr"
-	pb "project/common/proto/videoUser"
 )
 
 func Login(c *gin.Context) {
@@ -34,7 +34,7 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
-	token, err := pkr.GenerateJWT(data.Id)
+	token, err := pkr.GetToken(data.Id)
 	if err != nil {
 		fmt.Println("jwt生成失败.error:", err)
 		c.JSON(http.StatusOK, gin.H{

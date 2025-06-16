@@ -3,9 +3,9 @@ package server
 import (
 	"context"
 	"fmt"
+	"github.com/lanjinghexuan/project/common/gload"
+	pb "github.com/lanjinghexuan/project/common/proto/videoGoodsClassifiy"
 	"google.golang.org/grpc"
-	"project/common/gload"
-	pb "project/common/proto/videoGoodsClassifiy"
 )
 
 type videoGoodsClassCHand func(ctx context.Context, client pb.GoodsClassifiyClient) (interface{}, error)

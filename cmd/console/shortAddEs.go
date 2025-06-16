@@ -2,8 +2,8 @@ package console
 
 import (
 	"fmt"
-	"project/common/gload"
-	"project/common/pkr"
+	"github.com/lanjinghexuan/project/common/gload"
+	"github.com/lanjinghexuan/project/common/pkr"
 	"time"
 )
 

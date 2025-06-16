@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	_ "project/common/cmd"
-	"project/common/gload"
-	"project/common/pkr"
+	_ "github.com/lanjinghexuan/project/common/cmd"
+	"github.com/lanjinghexuan/project/common/gload"
+	"github.com/lanjinghexuan/project/common/pkr"
 	"strconv"
 )
 

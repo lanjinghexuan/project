@@ -2,8 +2,8 @@ package server
 
 import (
 	"context"
-	"project/common/gload"
-	pb "project/common/proto/videoUser"
+	"github.com/lanjinghexuan/project/common/gload"
+	pb "github.com/lanjinghexuan/project/common/proto/videoUser"
 )
 
 type VideoUserServer struct {

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"project/common/gload"
+	"github.com/lanjinghexuan/project/common/gload"
 	"strings"
 )
 

@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
+	_ "github.com/lanjinghexuan/project/common/init"
 	"os"
-	_ "project/common/init"
 )
 
 func main() {

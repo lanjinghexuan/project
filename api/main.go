@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"project/api/handle"
-	_ "project/common/init"
+	"github.com/lanjinghexuan/project/api/handle"
+	_ "github.com/lanjinghexuan/project/common/init"
 )
 
 func main() {

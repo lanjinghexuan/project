@@ -2,8 +2,8 @@ package server
 
 import (
 	"context"
-	"project/common/model"
-	pb "project/common/proto/videoGoodsClassifiy"
+	"github.com/lanjinghexuan/project/common/model"
+	pb "github.com/lanjinghexuan/project/common/proto/videoGoodsClassifiy"
 )
 
 type GoodsClassifiyServer struct {

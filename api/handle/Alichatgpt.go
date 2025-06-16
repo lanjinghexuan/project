@@ -7,6 +7,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/lanjinghexuan/project/common/gload"
+	"github.com/lanjinghexuan/project/common/model"
 	"github.com/openai/openai-go"
 	"github.com/openai/openai-go/option"
 	"io"
@@ -14,8 +16,6 @@ import (
 	"math/rand"
 	"net/http"
 	"os"
-	"project/common/gload"
-	"project/common/model"
 	"strconv"
 	"time"
 )

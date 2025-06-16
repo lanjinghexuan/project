@@ -3,11 +3,11 @@ package server
 import (
 	"context"
 	"fmt"
+	"github.com/lanjinghexuan/project/common/gload"
+	pb "github.com/lanjinghexuan/project/common/proto/videoUser"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
-	"project/common/gload"
-	pb "project/common/proto/videoUser"
 )
 
 type VideoUser func(ctx context.Context, in pb.VideoUserClient) (interface{}, error)

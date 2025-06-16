@@ -1,6 +1,6 @@
 package model
 
-import "project/common/gload"
+import "github.com/lanjinghexuan/project/common/gload"
 
 type VideoGoodsClassifiy struct {
 	Id            int32  `gorm:"column:id;type:int;primaryKey;not null;" json:"id"`

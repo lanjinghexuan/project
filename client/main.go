@@ -3,14 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/lanjinghexuan/project/client/server"
+	"github.com/lanjinghexuan/project/common/gload"
+	_ "github.com/lanjinghexuan/project/common/init"
+	pb "github.com/lanjinghexuan/project/common/proto/videoGoodsClassifiy"
+	pb2 "github.com/lanjinghexuan/project/common/proto/videoUser"
 	"google.golang.org/grpc"
 	"log"
 	"net"
-	"project/client/server"
-	"project/common/gload"
-	_ "project/common/init"
-	pb "project/common/proto/videoGoodsClassifiy"
-	pb2 "project/common/proto/videoUser"
 )
 
 func main() {
