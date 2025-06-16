@@ -70,3 +70,94 @@ func UploadFileToMinIO(bucketName, objectName string, file *multipart.FileHeader
 		file.Filename, bucketName, objectName)
 	return addr + "/" + bucketName + "/" + objectName, nil
 }
+
+/*
+
+// 获取上传的文件
+	file, err := c.FormFile("file")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "Failed to get uploaded file: " + err.Error(),
+		})
+		return
+	}
+	if file.Size > 1024*1024*50 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "文件内容过大",
+		})
+	}
+
+	// 验证文件扩展名
+	allowedExtensions := map[string]bool{
+		".png":  true,
+		".jpg":  true,
+		".jpeg": true,
+		".mp4":  true,
+	}
+
+	ext := strings.ToLower(path.Ext(file.Filename))
+	if !allowedExtensions[ext] {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "文件类型不支持，仅支持 png, jpg, jpeg, mp4 格式",
+		})
+		return
+	}
+
+	// 直接上传到 MinIO
+	fileUrl, err := middlewear.UploadFileToMinIO("lanjing", file.Filename, file)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  "Failed to upload file to MinIO: " + err.Error(),
+		})
+		return
+	}
+*/
+/*
+
+// 获取上传的文件
+	file, err := c.FormFile("file")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "Failed to get uploaded file: " + err.Error(),
+		})
+		return
+	}
+	if file.Size > 1024*1024*50 {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "文件内容过大",
+		})
+	}
+
+	// 验证文件扩展名
+	allowedExtensions := map[string]bool{
+		".png":  true,
+		".jpg":  true,
+		".jpeg": true,
+		".mp4":  true,
+	}
+
+	ext := strings.ToLower(path.Ext(file.Filename))
+	if !allowedExtensions[ext] {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"code": http.StatusBadRequest,
+			"msg":  "文件类型不支持，仅支持 png, jpg, jpeg, mp4 格式",
+		})
+		return
+	}
+
+	// 直接上传到 MinIO
+	fileUrl, err := middlewear.UploadFileToMinIO("lanjing", file.Filename, file)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"code": http.StatusInternalServerError,
+			"msg":  "Failed to upload file to MinIO: " + err.Error(),
+		})
+		return
+	}
+*/

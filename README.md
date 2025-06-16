@@ -19,6 +19,10 @@ pkg目前封装了es的操作
 文档有一个简易的jwt生成token
 代码地址为 "common/pkr/jwt.go"
 
+## minio
+文档有一个minio上传（代码最下方有使用示例)
+代码地址为 "common/pkr/minio.go"
+
 ## go项目编译(在cmd进行实现)
 ### 交叉编译到Linux
 set GOOS=linux
