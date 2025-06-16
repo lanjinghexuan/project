@@ -50,7 +50,7 @@ func main() {
 		],
 		"size": 1
 	}`
-	last, err := pkr.SearchEs(query)
+	last, err := pkr.SearchEs(query, "video_works")
 	if err != nil {
 		fmt.Println(err)
 		return

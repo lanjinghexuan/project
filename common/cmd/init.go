@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/elastic/go-elasticsearch/v8"
 	"github.com/go-redis/redis/v8"
+	"github.com/lanjinghexuan/project/common/gload"
 	"github.com/spf13/viper"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -13,7 +14,6 @@ import (
 	"gorm.io/gorm"
 	"net"
 	"net/http"
-	"project/common/gload"
 	"time"
 )
 

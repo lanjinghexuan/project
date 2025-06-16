@@ -75,10 +75,10 @@ func BulkAddEs(index string, documents []interface{}) (bool, error) {
 }
 
 // SearchEs 在 Elasticsearch 中搜索文档
-func SearchEs(query string) ([]interface{}, error) {
+func SearchEs(query string, indexName string) ([]interface{}, error) {
 	var r map[string]interface{}
 	res, err := gload.ES.Search(
-		gload.ES.Search.WithIndex("video_works"),
+		gload.ES.Search.WithIndex(indexName),
 		gload.ES.Search.WithBody(strings.NewReader(query)),
 	)
 	if err != nil {

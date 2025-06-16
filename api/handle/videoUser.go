@@ -8,6 +8,7 @@ import (
 	"github.com/lanjinghexuan/project/common/pkr"
 	pb "github.com/lanjinghexuan/project/common/proto/videoUser"
 	"net/http"
+	"strconv"
 )
 
 func Login(c *gin.Context) {
@@ -34,7 +35,7 @@ func Login(c *gin.Context) {
 		})
 		return
 	}
-	token, err := pkr.GetToken(data.Id)
+	token, err := pkr.GetToken(strconv.Itoa(int(data.Id)))
 	if err != nil {
 		fmt.Println("jwt生成失败.error:", err)
 		c.JSON(http.StatusOK, gin.H{
