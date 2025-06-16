@@ -18,3 +18,14 @@ pkg目前封装了es的操作
 ## jwt
 文档有一个简易的jwt生成token
 代码地址为 "common/pkr/jwt.go"
+
+## go项目编译(在cmd进行实现)
+### 交叉编译到Linux
+set GOOS=linux
+set GOARCH=amd64
+go build -o app-linux
+
+### 交叉编译到Mac
+set GOOS=darwin
+set GOARCH=amd64
+go build -o app-mac
