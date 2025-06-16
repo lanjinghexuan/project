@@ -4,56 +4,47 @@ import (
 	"errors"
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
-	"log"
 	"time"
 )
 
-//代码从官方查询个人参考使用
+const jwtSecret = "AllYourBase"
 
 type MyCustomClaims struct {
 	Foo string `json:"foo"`
 	jwt.RegisteredClaims
 }
 
+// GetToken 生成 JWT Token
 func GetToken(UserId string) (string, error) {
-	//密钥
-	mySigningKey := []byte("AllYourBase")
-
-	// Create claims with multiple fields populated
 	claims := MyCustomClaims{
 		"bar",
 		jwt.RegisteredClaims{
-			// A usual scenario is to set the expiration time relative to the current time
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)), //过期时间
-			IssuedAt:  jwt.NewNumericDate(time.Now()),                     //发布时间
-			NotBefore: jwt.NewNumericDate(time.Now()),                     //生效时间
-			ID:        UserId,                                             //内容
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(24 * time.Hour)),
+			IssuedAt:  jwt.NewNumericDate(time.Now()),
+			NotBefore: jwt.NewNumericDate(time.Now()),
+			ID:        UserId,
 		},
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	ss, err := token.SignedString(mySigningKey)
-	fmt.Println(ss, err)
+	ss, err := token.SignedString([]byte(jwtSecret))
+	if err != nil {
+		return "", err
+	}
 	return ss, nil
 }
 
+// ParseToken 解析 JWT Token
 func ParseToken(tokenString string) (string, error) {
-
-	type MyCustomClaims struct {
-		Foo string `json:"foo"`
-		jwt.RegisteredClaims
-	}
-
-	token, err := jwt.ParseWithClaims(tokenString, &MyCustomClaims{}, func(token *jwt.Token) (interface{}, error) {
-		return []byte("AllYourBase"), nil
+	var claims MyCustomClaims
+	token, err := jwt.ParseWithClaims(tokenString, &claims, func(token *jwt.Token) (interface{}, error) {
+		return []byte(jwtSecret), nil
 	}, jwt.WithLeeway(time.Second))
 	if err != nil {
-		fmt.Println(err)
-	} else if claims, ok := token.Claims.(*MyCustomClaims); ok {
-		return claims.ID, nil
-	} else {
-		log.Fatal("unknown claims type, cannot proceed")
+		return "", fmt.Errorf("parse token error: %v", err)
 	}
-	return "", errors.New("unknown claims type, cannot proceed")
-	// Output: bar test
+	if !token.Valid {
+		return "", errors.New("invalid token")
+	}
+	return claims.ID, nil
 }
