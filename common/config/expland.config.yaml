@@ -1,6 +1,6 @@
 Mysql:
   Host: 127.0.0.1
-  Prot: 3306
+  Port: 3306
   UserName: root
   PassWord: root
   DataBase: test

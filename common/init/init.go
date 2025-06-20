@@ -21,8 +21,8 @@ func init() {
 	viperConfig()
 	InitMysql()
 	InitRedis()
-	InitElasticsearch()
-	InitMongo()
+	//InitElasticsearch()
+	//InitMongo()
 }
 
 func viperConfig() {
@@ -57,13 +57,13 @@ func InitMysql() {
 func InitRedis() {
 	ctx := context.Background()
 
-	rdb := redis.NewClient(&redis.Options{
-		Network: fmt.Sprintf("%s:%s", gload.CONFIG.Redis.Host, gload.CONFIG.Redis.Port),
-		DB:      gload.CONFIG.Redis.DB,
+	gload.REDIS = redis.NewClient(&redis.Options{
+		Addr: fmt.Sprintf("%s:%s", gload.CONFIG.Redis.Host, gload.CONFIG.Redis.Port),
+		DB:   gload.CONFIG.Redis.DB,
 	})
-	err := rdb.FlushDB(ctx).Err()
+	err := gload.REDIS.FlushDB(ctx).Err()
 	if err != nil {
-		//fmt.Println("redis链接错误.error:", err)
+		fmt.Println("redis链接错误.error:", err)
 	}
 
 }
@@ -92,6 +92,7 @@ func InitElasticsearch() {
 }
 
 func InitMongo() {
+
 	client := options.Client().ApplyURI(fmt.Sprintf("mongodb://%s:%s@%s:%d",
 		gload.CONFIG.Mongo.User,
 		gload.CONFIG.Mongo.Pass,

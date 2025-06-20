@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/lanjinghexuan/project/api/handle"
 	_ "github.com/lanjinghexuan/project/common/init"
 )
 
@@ -16,9 +15,12 @@ func main() {
 	//pkr.DelEs()
 	r := gin.Default()
 	//router.Router(r)
-	r.GET("/sendgpt", handle.SendGpt)
-	r.GET("/getgptdata", handle.GetGptData)
-	r.GET("/sendFlowGpt", handle.SendFlowGpt)
-	r.GET("/getFlowGpt", handle.GetFlowGpt)
+
+	//调用文心一言代码
+	//r.GET("/sendgpt", handle.SendGpt)
+	//r.GET("/getgptdata", handle.GetGptData)
+	//r.GET("/sendFlowGpt", handle.SendFlowGpt)
+	//r.GET("/getFlowGpt", handle.GetFlowGpt)
+
 	r.Run(":8080")
 }

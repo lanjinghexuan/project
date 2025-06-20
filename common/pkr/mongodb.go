@@ -11,7 +11,7 @@ type videoWorks struct {
 }
 
 // 代码仅供参考(mongo 封装意义不大)
-func main() {
+func a() {
 	coll := gload.MONGO.Database("db").Collection("test")
 
 	// 操作mongo进行添加
